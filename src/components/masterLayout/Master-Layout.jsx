@@ -48,7 +48,7 @@ const MasterLayout = (props) => {
             <a className="icon-nav m-0 h5" onClick={MenuBarClickHandler}>
               <AiOutlineMenuUnfold />
             </a>
-            <img className="nav-logo mx-2" src={logo} alt="logo" />
+            <img className="nav-logo mx-2" src="" alt="FreeCourse Admin" />
           </Navbar.Brand>
 
           <div className="float-right h-auto d-flex">
@@ -59,6 +59,7 @@ const MasterLayout = (props) => {
                 src={avatar}
                 alt=""
               />
+
               <div className="user-dropdown-content ">
                 <div className="mt-4 text-center">
                   <img
