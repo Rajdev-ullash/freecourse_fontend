@@ -14,6 +14,8 @@ import logo from "../../assets/images/logo.svg";
 import avatar from "../../assets/images/avatar2.png";
 import { MdOutlineCancelPresentation } from "react-icons/md";
 import { RiDashboardLine } from "react-icons/ri";
+import sidebarStyle from "../../assets/css/sidebar.module.css";
+import dropdownStyle from "../../assets/css/dropdownmenu.module.css";
 // import { getUserDetails, removeSession } from "../../helper/SessionHelper";
 
 const MasterLayout = (props) => {
@@ -27,16 +29,16 @@ const MasterLayout = (props) => {
   const MenuBarClickHandler = () => {
     let sideNav = sideNavRef;
     let content = contentRef;
-    if (sideNav.classList.contains("side-nav-open")) {
-      sideNav.classList.add("side-nav-close");
-      sideNav.classList.remove("side-nav-open");
-      content.classList.add("content-expand");
-      content.classList.remove("content");
+    if (sideNav.classList.contains(`${sidebarStyle.side_nav_open}`)) {
+      sideNav.classList.add(`${sidebarStyle.side_nav_close}`);
+      sideNav.classList.remove(`${sidebarStyle.side_nav_open}`);
+      content.classList.add(`${sidebarStyle.content_expand}`);
+      content.classList.remove(`${sidebarStyle.content}`);
     } else {
-      sideNav.classList.remove("side-nav-close");
-      sideNav.classList.add("side-nav-open");
-      content.classList.remove("content-expand");
-      content.classList.add("content");
+      sideNav.classList.remove(`${sidebarStyle.side_nav_close}`);
+      sideNav.classList.add(`${sidebarStyle.side_nav_open}`);
+      content.classList.remove(`${sidebarStyle.content_expand}`);
+      content.classList.add(`${sidebarStyle.content}`);
     }
   };
 
@@ -45,25 +47,32 @@ const MasterLayout = (props) => {
       <Navbar className="fixed-top px-0 shadow-sm ">
         <Container fluid={true}>
           <Navbar.Brand>
-            <a className="icon-nav m-0 h5" onClick={MenuBarClickHandler}>
+            <a
+              className={`m-0 h5${sidebarStyle.icon_nav}`}
+              onClick={MenuBarClickHandler}
+            >
               <AiOutlineMenuUnfold />
             </a>
-            <img className="nav-logo mx-2" src="" alt="FreeCourse Admin" />
+            <img
+              className={`mx-2${sidebarStyle.nav_logo}`}
+              src=""
+              alt="FreeCourse Admin"
+            />
           </Navbar.Brand>
 
           <div className="float-right h-auto d-flex">
-            <div className="user-dropdown">
+            <div className={`${dropdownStyle.user_dropdown}`}>
               <img
-                className="icon-nav-img icon-nav"
+                className={`mx-2 ${sidebarStyle.icon_nav_img} ${sidebarStyle.icon_nav}`}
                 // src={getUserDetails()["photo"]}
                 src={avatar}
                 alt=""
               />
 
-              <div className="user-dropdown-content ">
+              <div className={`${dropdownStyle.user_dropdown_content}`}>
                 <div className="mt-4 text-center">
                   <img
-                    className="icon-nav-img"
+                    className={`mx-2 ${sidebarStyle.icon_nav_img}`}
                     // src={getUserDetails()["photo"]}
                     src={avatar}
                     alt=""
@@ -72,15 +81,28 @@ const MasterLayout = (props) => {
                     {/* {getUserDetails()["firstName"]} */}
                     Raj
                   </h6>
-                  <hr className="user-dropdown-divider  p-0" />
+                  <hr
+                    className={`p-0 ${dropdownStyle.user_dropdown_divider}`}
+                  />
                 </div>
-                <NavLink to="/Profile" className="side-bar-item">
-                  <AiOutlineUser className="side-bar-item-icon" />
-                  <span className="side-bar-item-caption">Profile</span>
+                <NavLink
+                  to="/Profile"
+                  className={`${sidebarStyle.side_bar_item}`}
+                >
+                  <AiOutlineUser
+                    className={`${sidebarStyle.side_bar_item_icon}`}
+                  />
+                  <span className={`${sidebarStyle.side_bar_item_caption}`}>
+                    Profile
+                  </span>
                 </NavLink>
-                <a className="side-bar-item">
-                  <AiOutlineLogout className="side-bar-item-icon" />
-                  <span className="side-bar-item-caption">Logout</span>
+                <a className={`${sidebarStyle.side_bar_item}`}>
+                  <AiOutlineLogout
+                    className={`${sidebarStyle.side_bar_item_icon}`}
+                  />
+                  <span className={`${sidebarStyle.side_bar_item_caption}`}>
+                    Logout
+                  </span>
                 </a>
               </div>
             </div>
@@ -92,83 +114,92 @@ const MasterLayout = (props) => {
         ref={(div) => {
           sideNavRef = div;
         }}
-        className="side-nav-open"
+        className={`${sidebarStyle.side_nav_open}`}
       >
         <NavLink
           className={(navData) =>
             navData.isActive
-              ? "side-bar-item-active side-bar-item mt-2"
-              : "side-bar-item mt-2"
+              ? ` mt-2 ${sidebarStyle.side_bar_item_active} ${sidebarStyle.side_bar_item}`
+              : ` mt-2 ${sidebarStyle.side_bar_item}`
           }
-          to="/"
+          to="/admin/home"
           end
         >
-          <RiDashboardLine className="side-bar-item-icon" />
-          <span className="side-bar-item-caption">Dashboard</span>
+          <RiDashboardLine className={`${sidebarStyle.side_bar_item_icon}`} />
+          <span className={`${sidebarStyle.side_bar_item_caption}`}>
+            Dashboard
+          </span>
         </NavLink>
 
         <NavLink
           className={(navData) =>
             navData.isActive
-              ? "side-bar-item-active side-bar-item mt-2"
-              : "side-bar-item mt-2"
+              ? ` mt-2 ${sidebarStyle.side_bar_item_active} ${sidebarStyle.side_bar_item}`
+              : ` mt-2 ${sidebarStyle.side_bar_item}`
           }
-          to="/Create"
+          to="/admin/Create"
         >
-          <AiOutlineEdit className="side-bar-item-icon" />
-          <span className="side-bar-item-caption">Create Course</span>
+          <AiOutlineEdit className={`${sidebarStyle.side_bar_item_icon}`} />
+          <span className={`${sidebarStyle.side_bar_item_caption}`}>
+            Create Course
+          </span>
         </NavLink>
 
         <NavLink
           className={(navData) =>
             navData.isActive
-              ? "side-bar-item-active side-bar-item mt-2"
-              : "side-bar-item mt-2"
+              ? ` mt-2 ${sidebarStyle.side_bar_item_active} ${sidebarStyle.side_bar_item}`
+              : ` mt-2 ${sidebarStyle.side_bar_item}`
           }
           to="/All"
         >
-          <BsListNested className="side-bar-item-icon" />
-          <span className="side-bar-item-caption">Show Course</span>
+          <BsListNested className={`${sidebarStyle.side_bar_item_icon}`} />
+          <span className={`${sidebarStyle.side_bar_item_caption}`}>
+            Show Course
+          </span>
         </NavLink>
 
         {/* <NavLink
           className={(navData) =>
             navData.isActive
-              ? "side-bar-item-active side-bar-item mt-2"
-              : "side-bar-item mt-2"
+              ? "side_bar_item_active side_bar_item mt-2"
+              : "side_bar_item mt-2"
           }
           to="/Progress"
         >
-          <BsHourglass className="side-bar-item-icon" />
-          <span className="side-bar-item-caption">In Progress</span>
+          <BsHourglass className="side_bar_item_icon" />
+          <span className="side_bar_item_caption">In Progress</span>
         </NavLink>
 
         <NavLink
           className={(navData) =>
             navData.isActive
-              ? "side-bar-item-active side-bar-item mt-2"
-              : "side-bar-item mt-2"
+              ? "side_bar_item_active side_bar_item mt-2"
+              : "side_bar_item mt-2"
           }
           to="/Completed"
         >
-          <AiOutlineCheckCircle className="side-bar-item-icon" />
-          <span className="side-bar-item-caption">Completed</span>
+          <AiOutlineCheckCircle className="side_bar_item_icon" />
+          <span className="side_bar_item_caption">Completed</span>
         </NavLink>
 
         <NavLink
           className={(navData) =>
             navData.isActive
-              ? "side-bar-item-active side-bar-item mt-2"
-              : "side-bar-item mt-2"
+              ? "side_bar_item_active side_bar_item mt-2"
+              : "side_bar_item mt-2"
           }
           to="/Canceled"
         >
-          <MdOutlineCancelPresentation className="side-bar-item-icon" />
-          <span className="side-bar-item-caption">Canceled</span>
+          <MdOutlineCancelPresentation className="side_bar_item_icon" />
+          <span className="side_bar_item_caption">Canceled</span>
         </NavLink> */}
       </div>
 
-      <div ref={(div) => (contentRef = div)} className="content">
+      <div
+        ref={(div) => (contentRef = div)}
+        className={`${sidebarStyle.content}`}
+      >
         {props.children}
       </div>
     </Fragment>

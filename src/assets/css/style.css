@@ -49,6 +49,6 @@ a:hover {
   box-shadow: none !important;
 }
 
-@import "sidebar.css";
-@import "dropdownmenu.css";
+/* @import "sidebar.css"; */
+/* @import "dropdownmenu.css"; */
 @import "progress.css";

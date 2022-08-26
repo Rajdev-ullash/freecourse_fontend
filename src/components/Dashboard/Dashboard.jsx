@@ -6,17 +6,26 @@ const Dashboard = () => {
     <Fragment>
       <div className="container">
         <div className="row">
-          <div class="card" style={{ width: "18rem" }}>
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">
-                Go somewhere
-              </a>
+          <div className="col-md-3 col-sm-12">
+            <div class="card" style={{ width: "18rem" }}>
+              <div class="card-body d-flex justify-content-center">
+                <div>
+                  <h3 className="text-center">10</h3>
+                  <h5 class="card-title">Total Course</h5>
+                </div>
+                {/* <p class="card-text">Total Course</p> */}
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3 col-sm-12">
+            <div class="card" style={{ width: "18rem" }}>
+              <div class="card-body d-flex justify-content-center">
+                <div>
+                  <h3 className="text-center">12</h3>
+                  <h5 class="card-title">Total Category</h5>
+                </div>
+                {/* <p class="card-text">Total Course</p> */}
+              </div>
             </div>
           </div>
         </div>

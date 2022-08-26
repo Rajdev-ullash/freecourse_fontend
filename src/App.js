@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FullscreenLoader from "./components/masterLayout/Fullscreen-Loader";
+import CreateCoursePage from "./pages/CreateCourse-Page";
 import DashboardPage from "./pages/Dashboard-Page";
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <Fragment>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<DashboardPage />} />
+          <Route exact path="/admin/home" element={<DashboardPage />} />
+          <Route exact path="/admin/Create" element={<CreateCoursePage />} />
         </Routes>
       </BrowserRouter>
       <FullscreenLoader />
