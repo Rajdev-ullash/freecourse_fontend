@@ -51,7 +51,9 @@ const CreateCourse = () => {
               <div className="card-body">
                 <h4>Create New Course</h4>
                 <br />
-                <label>Course Title</label>
+                <label>
+                  <h6>Course Title</h6>
+                </label>
                 <input
                   type="text"
                   ref={(input) => (courseTitleRef = input)}
@@ -59,6 +61,9 @@ const CreateCourse = () => {
                   placeholder="Course Title"
                 />
                 <br />
+                <label>
+                  <h6>Course Description</h6>
+                </label>
                 <JoditEditor
                   ref={editor}
                   value={content}
@@ -67,20 +72,24 @@ const CreateCourse = () => {
                   onBlur={(newContent) => setContent(newContent)}
                 />
                 <br />
-                <img
-                  className="icon-nav-img-lg"
-                  src={image}
-                  alt=""
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                    borderRadius: "10px",
-                    objectFit: "cover",
-                  }}
-                />
+                {image && (
+                  <img
+                    className="icon-nav-img-lg"
+                    src={image}
+                    alt=""
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      borderRadius: "10px",
+                      objectFit: "cover",
+                    }}
+                  />
+                )}
 
                 <br />
-                <label>Course Image</label>
+                <label>
+                  <h6>Course Image</h6>
+                </label>
                 <input
                   type="file"
                   onChange={PreviewImage}
@@ -89,6 +98,9 @@ const CreateCourse = () => {
                 />
 
                 <br />
+                <label>
+                  <h6>Course Download link</h6>
+                </label>
                 <input
                   type="text"
                   ref={(input) => (courseDownloadLinkRef = input)}

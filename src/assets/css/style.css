@@ -49,6 +49,16 @@ a:hover {
   box-shadow: none !important;
 }
 
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 0.55);
+  border-color: transparent !important;
+}
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none !important;
+}
+
 /* @import "sidebar.css"; */
 /* @import "dropdownmenu.css"; */
 @import "progress.css";
